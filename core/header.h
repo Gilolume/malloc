@@ -12,6 +12,7 @@
 #define __HEADER__
 
 #include <stdlib.h>
+#include <stdio.h>
 #include <time.h>
 #include <sys/types.h>
 #include <sys/uio.h>
@@ -24,12 +25,24 @@ typedef struct s_block
 {
 	int free;
 	size_t size;
-	t_block next;
+	struct s_block *next;
+  struct s_block *prev;
+  void *ptr;
+
+  char data[1];
 } t_block;
 
+void my_putchar(char c);
+void my_putstr(char *str);
+void my_put_nbr(int nb);
+
+int metaSize();
 int blockSize(int n);
-t_block* findBlock(t_block *chain, size_t size);
+t_block* findBlock(t_block **chain, size_t size);
 t_block* extendHeap(t_block *chain, size_t size);
-void split_block(t_block b, size_t size);
+void splitBlock(t_block *b, size_t size);
+t_block *getBlock(void *p);
+int validBlockAddress(void *p);
+t_block *fusionBlocks(t_block *b);
 
 #endif

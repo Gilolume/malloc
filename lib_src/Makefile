@@ -7,13 +7,11 @@ SRC =	lib/my_strncat.c \
 	lib/my_strcpy.c \
 	lib/my_getnbr.c \
 	lib/my_putstr.c \
-	lib/my_str_to_wordtab.c \
-	lib/my_strdup.c \
 	lib/my_strncpy.c \
 	lib/my_strlen.c \
 	lib/my_strncmp.c \
 	lib/my_isneg.c \
-	lib/my_strcmp.c \
+	lib/my_strcmp.c
 
 NAME =	libmy
 OBJO =	$(SRC:%.c=%.o)

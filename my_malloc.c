@@ -19,22 +19,22 @@ void* malloc(size_t size)
 	size = blockSize(size);
 	if (g_block)
 	{
-		last = g_block;
-		b = findBlock(&last, size);
-		
+    last = g_block;
+    b = findBlock(&last, size);
+    
 		if (b) {
-			if ((b->size - size) >= (sizeof(t_block) + 4))
+			if ((int)(b->size - size) >= (metaSize() + 4))
 				splitBlock(b, size);
 			b->free =0;
 		} else {
-			b = extendHeap(last, size);
+      b = extendHeap(last, size);
 			if (!b)
 				return (NULL);
 		}
 	}
 	else 
 	{
-		b = extendHeap(NULL, size);
+    b = extendHeap(NULL, size);
 		if (!b)
 			return (NULL);
 		g_block = b;
@@ -42,9 +42,30 @@ void* malloc(size_t size)
 	return (b->data);
 }
 
-/*
+
 void free(void *ptr)
 {
-	
+  t_block *b;
+  
+  if (validBlockAddress(ptr))
+  {
+    b = getBlock(ptr);    
+    b->free = 1;    
+    
+    if (b->prev && b->prev->free)
+      b = fusionBlocks(b->prev);
+
+    if (b->next)
+      fusionBlocks(b);   
+    else
+    {      
+      if (b->prev)
+        b->prev->next = NULL;
+      else
+        g_block = NULL;
+      
+      brk(b);
+    }
+  }	
 }
-*/
+
