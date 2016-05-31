@@ -20,39 +20,16 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-typedef struct s_list
+typedef struct s_block
 {
-  void *data;
-  struct s_list *next;
-} t_list;
+	int free;
+	size_t size;
+	t_block next;
+} t_block;
 
-
-typedef struct s_core
-{
-  t_socket *socket;
-  
-  t_list *cmd;
-} t_core;
-
-typedef struct s_word
-{
-  char *fr;
-  char *wesh;
-} t_word;
-
-typedef struct s_command
-{
-  char *command;
-  char *explain;
-  void (*func)();
-} t_command;
-
-int my_strlen(char *str);
-void my_put_nbr(int nbr);
-void my_putchar(char c);
-void my_putstr(char *str);
-char *my_strdup(char *str);
-int my_strcmp(char *s1, char *s2);
-char **my_str_to_wordtab(char *str);
+int blockSize(int n);
+t_block* findBlock(t_block *chain, size_t size);
+t_block* extendHeap(t_block *chain, size_t size);
+void split_block(t_block b, size_t size);
 
 #endif

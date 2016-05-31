@@ -7,14 +7,44 @@
 ** Started on  Fri Apr 17 10:36:53 2015 ANZER ryan
 ** Last update Sat Apr 18 13:55:35 2015 ANZER ryan
 */
-#include "header.h"
+#include "core/header.h"
+
+t_block *g_block;
 
 void* malloc(size_t size)
 {
+	t_block *b;
+	t_block *last;
 	
+	size = blockSize(size);
+	if (g_block)
+	{
+		last = g_block;
+		b = findBlock(&last, size);
+		
+		if (b) {
+			if ((b->size - size) >= (sizeof(t_block) + 4))
+				splitBlock(b, size);
+			b->free =0;
+		} else {
+			b = extendHeap(last, size);
+			if (!b)
+				return (NULL);
+		}
+	}
+	else 
+	{
+		b = extendHeap(NULL, size);
+		if (!b)
+			return (NULL);
+		g_block = b;
+	}
+	return (b->data);
 }
 
+/*
 void free(void *ptr)
 {
 	
 }
+*/
