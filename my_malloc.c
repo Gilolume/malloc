@@ -1,11 +1,11 @@
 /*
-** main.c for main in /home/anzer_r/project/dicowesh/anzer_r/discowesh/core
+** _file_.c for main in /home/anzer_r/a/file/somewhere/
 ** 
 ** Made by ANZER ryan
 ** Login   <anzer_r@etna-alternance.net>
 ** 
-** Started on  Fri Apr 17 10:36:53 2015 ANZER ryan
-** Last update Sat Apr 18 13:55:35 2015 ANZER ryan
+** Started on  Fri Apr 17 10:36:53 2210 ANZER ryan
+** Last update Sat Apr 18 13:55:35 2210 ANZER ryan
 */
 #include "core/header.h"
 
@@ -13,33 +13,36 @@ t_block *g_block;
 
 void* malloc(size_t size)
 {
-	t_block *b;
-	t_block *last;
-	
-	size = blockSize(size);
-	if (g_block)
+  t_block *b;
+  t_block *last;
+  
+  size = blockSize(size);
+  if (g_block)
+    {
+      last = g_block;
+      b = findBlock(&last, size);
+      
+      if (b)
 	{
-    last = g_block;
-    b = findBlock(&last, size);
-    
-		if (b) {
-			if ((int)(b->size - size) >= (metaSize() + 4))
-				splitBlock(b, size);
-			b->free =0;
-		} else {
-      b = extendHeap(last, size);
-			if (!b)
-				return (NULL);
-		}
+	  if ((int)(b->size - size) >= (metaSize() + 4))
+	    splitBlock(b, size);
+	  b->free =0;
 	}
-	else 
+      else
 	{
-    b = extendHeap(NULL, size);
-		if (!b)
-			return (NULL);
-		g_block = b;
+	  b = extendHeap(last, size);
+	  if (!b)
+	    return (NULL);
 	}
-	return (b->data);
+    }
+  else 
+    {
+      b = extendHeap(NULL, size);
+      if (!b)
+	return (NULL);
+      g_block = b;
+    }
+  return (b->data);
 }
 
 
@@ -48,24 +51,23 @@ void free(void *ptr)
   t_block *b;
   
   if (validBlockAddress(ptr))
-  {
-    b = getBlock(ptr);    
-    b->free = 1;    
-    
-    if (b->prev && b->prev->free)
-      b = fusionBlocks(b->prev);
-
-    if (b->next)
-      fusionBlocks(b);   
-    else
-    {      
-      if (b->prev)
-        b->prev->next = NULL;
-      else
-        g_block = NULL;
+    {
+      b = getBlock(ptr);    
+      b->free = 1;    
       
-      brk(b);
-    }
-  }	
+      if (b->prev && b->prev->free)
+	b = fusionBlocks(b->prev);
+      
+      if (b->next)
+	fusionBlocks(b);   
+      else
+	{      
+	  if (b->prev)
+	    b->prev->next = NULL;
+	  else
+	    g_block = NULL;
+	  
+	  brk(b);
+	}
+    }	
 }
-
