@@ -8,16 +8,21 @@
 ** Last update Sat Apr 18 13:55:35 2015 ANZER ryan
 */
 #include "core/header.h"
+#include <time.h>
+#include <stdlib.h>
 
 void* malloc(size_t size);
 void free(void *ptr);
+void* calloc(size_t number, size_t size);
+void *realloc(void *ptr, size_t s);
 
 extern t_block *g_block;
 
 void dump() {
   t_block *last;
-  //int i;
-  
+  int i;
+
+  i = 0;
   last = g_block;
   while (last)
     {
@@ -25,58 +30,113 @@ void dump() {
       my_put_nbr(last->free);
       my_putstr(", size: ");
       my_put_nbr((int)last->size);
-      my_putstr(", value: ");
-      my_putstr(last->data);
+      //my_putstr(", value: ");
+      //my_putstr(last->data);
       my_putstr(" --\n"); 
       
-      last = last->next; 
+      last = last->next;
+      i += 1;
     }
-  my_putstr("===========\n");
+  my_putstr("total: ");
+  my_put_nbr(i);
+  my_putstr("\n===========\n");
 }
 
-void test(int max, char c)
+char *test(int max, char c)
 {
   char *list;
   int i;
   
-  list = malloc(sizeof(char) * (max + 1));
+  printf("- %d, %c\n", max, c);
+  
+  if (rand() % 2 == 1)
+    {
+      my_putstr("malloc\n");
+      list = malloc(sizeof(char) * (max + 1));
+      if (list)
+	{
+	  i = 0;
+	  while (i < max)
+	    {
+	      list[i] = c;
+	      i += 1;		
+	    }
+	  list[max] = '\0';
+	}
+    }
+  else
+    {
+      my_putstr("calloc\n");
+      //list = calloc(sizeof(char), (max + 1));
+      list = malloc(sizeof(char) * (max + 1));
+      if (list)
+	{
+	  i = 0;
+	  while (i < max)
+	    {
+	      list[i] = c;
+	      i += 1;		
+	    }
+	  list[max] = '\0';
+	}
+    }
+
+  //dump();
+  list = realloc(list, sizeof(char) * (max * 2));
   if (list)
     {
       i = 0;
       while (i < max)
-      {
-	list[i] = c;
-	i += 1;		
-      }
+	{
+	  list[i] = 'x';
+	  i += 1;
+	}
       list[max] = '\0';
     }
+
+  //dump();
+  
+  return (list);
 }
 
 int main()
 {
   int i;
-  t_block *last;
-  int run;  
+  int run;
+  char *list[40];
+
+  i = 0;
+  while (i < 40)
+    {
+      list[i] = NULL;
+      i += 1;
+    }
+  
+  srand(time(NULL));
   
   run = 1;
   while (run) {
     i = 0;
-    while (i < 10)
+    while (i < rand() % 20)
       {
-	test(10 + i, 'a');
+	if (!list[i])
+	  list[i] = test(rand() % 100, (i % 2 == 0) ? 'a' : 'b');
 	i += 1;
       }
-    
-    i = 0; // Free half of avaible values
-    last = g_block;  
-    while (last)
+
+    i = 0;
+    while (i < 40)
       {
-	if (i % 2 == 0 || i == 1)
-	  free(last->data);
+	if (list[i])
+	  {
+	    free(list[i]);
+	    list[i] = NULL;
+	  }
 	i += 1;
-	last = last->next; 
-    }
-    dump();
+      }
+    my_putstr("done\n");
+    //dump();
+    my_putstr("dump done\n");
   }
   
   return (0);

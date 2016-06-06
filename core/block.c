@@ -11,12 +11,12 @@
 
 extern t_block *g_block;
 
-int blockSize(int n)
+size_t blockSize(int n)
 {
   return ((((n - 1) >> 2) << 2) + 4);
 }
 
-int metaSize()
+size_t metaSize()
 {
   return (40);
 }
@@ -60,7 +60,7 @@ void splitBlock(t_block *b, size_t size)
   t_block *new;
   
   new = (t_block *)(b->data + size);
-  new->size = (size_t)((b->size - size) - metaSize());
+  new->size = b->size - (size + metaSize());
   new->free = 1;
   new->next = b->next;
   new->prev = b;
@@ -90,14 +90,25 @@ int validBlockAddress(void *ptr)
 t_block *fusionBlocks(t_block *b)
 {
   if (b->next && b->next->free)
-    {
-      b->size += metaSize() + b->next->size;
+    {     
+      b->size += (size_t)(metaSize() + b->next->size);
       b->next = b->next->next;
-      
-      if(b->next)
+      if (b->next)
 	b->next->prev = b;
     }
   
   return (b);
+}
+
+void copyBlock(t_block *a, t_block *b)
+{
+  size_t i;
+  
+  i = 0;
+  while (i < a->size && i < 1)
+    {
+      b->data[i] = a->data[i];
+      i += 1;
+    }
 }
 

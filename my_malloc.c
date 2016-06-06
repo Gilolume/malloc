@@ -15,22 +15,27 @@ void* malloc(size_t size)
 {
   t_block *b;
   t_block *last;
-  
+
+  if (size == 0)
+    return (NULL);
+
   size = blockSize(size);
   if (g_block)
     {
       last = g_block;
       b = findBlock(&last, size);
+      printf("** found a block address %p for %lu\n", b, size);
       
       if (b)
 	{
-	  if ((int)(b->size - size) >= (metaSize() + 4))
+	  if ((b->size - size) >= (metaSize() + 4))
 	    splitBlock(b, size);
 	  b->free =0;
 	}
       else
 	{
 	  b = extendHeap(last, size);
+	  printf("** extend heap %p %lu, %lu\n", b, b->size, size);
 	  if (!b)
 	    return (NULL);
 	}
@@ -38,6 +43,7 @@ void* malloc(size_t size)
   else 
     {
       b = extendHeap(NULL, size);
+      printf("** start extend heap %p %lu, %lu\n", b, b->size, size);
       if (!b)
 	return (NULL);
       g_block = b;
@@ -49,24 +55,24 @@ void* malloc(size_t size)
 void free(void *ptr)
 {
   t_block *b;
-  
+
   if (validBlockAddress(ptr))
     {
-      b = getBlock(ptr);    
-      b->free = 1;    
+      b = getBlock(ptr);
+      b->free = 1;
+      printf("free address %p %lu\n", b, b->size);
       
       if (b->prev && b->prev->free)
 	b = fusionBlocks(b->prev);
-      
+	
       if (b->next)
 	fusionBlocks(b);   
       else
-	{      
+	{
 	  if (b->prev)
 	    b->prev->next = NULL;
 	  else
 	    g_block = NULL;
-	  
 	  brk(b);
 	}
     }	

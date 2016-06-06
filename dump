@@ -1,0 +1,332 @@
+-- block_dump: 0, size: 12, value: aaaaaaaaaa --
+total: 1
+===========
+-- block_dump: 1, size: 12, value: aaaaaaaaaa --
+-- block_dump: 0, size: 40, value: xxxxxxxxx --
+total: 2
+===========
+-- block_dump: 0, size: 12, value: bbbbbbbbbbb --
+-- block_dump: 0, size: 40, value: xxxxxxxxx --
+total: 2
+===========
+-- block_dump: 1, size: 12, value: bbbbbbbbbbb --
+-- block_dump: 0, size: 40, value: xxxxxxxxx --
+-- block_dump: 0, size: 44, value: xxxxxxxxxx --
+total: 3
+===========
+-- block_dump: 1, size: 12, value: bbbbbbbbbbb --
+-- block_dump: 0, size: 40, value: xxxxxxxxx --
+-- block_dump: 0, size: 44, value: xxxxxxxxxx --
+-- block_dump: 0, size: 16, value: aaaaaaaaaaaa --
+total: 4
+===========
+-- block_dump: 1, size: 12, value: bbbbbbbbbbb --
+-- block_dump: 0, size: 40, value: xxxxxxxxx --
+-- block_dump: 0, size: 44, value: xxxxxxxxxx --
+-- block_dump: 1, size: 16, value: aaaaaaaaaaaa --
+-- block_dump: 0, size: 48, value: xxxxxxxxxxx --
+total: 5
+===========
+-- block_dump: 1, size: 12, value: bbbbbbbbbbb --
+-- block_dump: 0, size: 40, value: xxxxxxxxx --
+-- block_dump: 0, size: 44, value: xxxxxxxxxx --
+-- block_dump: 0, size: 16, value: bbbbbbbbbbbbb --
+-- block_dump: 0, size: 48, value: xxxxxxxxxxx --
+total: 5
+===========
+-- block_dump: 1, size: 12, value: bbbbbbbbbbb --
+-- block_dump: 0, size: 40, value: xxxxxxxxx --
+-- block_dump: 0, size: 44, value: xxxxxxxxxx --
+-- block_dump: 1, size: 16, value: bbbbbbbbbbbbb --
+-- block_dump: 0, size: 48, value: xxxxxxxxxxx --
+-- block_dump: 0, size: 52, value: xxxxxxxxxxxx --
+total: 6
+===========
+-- block_dump: 1, size: 12, value: bbbbbbbbbbb --
+-- block_dump: 0, size: 40, value: xxxxxxxxx --
+-- block_dump: 0, size: 44, value: xxxxxxxxxx --
+-- block_dump: 0, size: 16, value: aaaaaaaaaaaaaa --
+-- block_dump: 0, size: 48, value: xxxxxxxxxxx --
+-- block_dump: 0, size: 52, value: xxxxxxxxxxxx --
+total: 6
+===========
+-- block_dump: 1, size: 12, value: bbbbbbbbbbb --
+-- block_dump: 0, size: 40, value: xxxxxxxxx --
+-- block_dump: 0, size: 44, value: xxxxxxxxxx --
+-- block_dump: 1, size: 16, value: aaaaaaaaaaaaaa --
+-- block_dump: 0, size: 48, value: xxxxxxxxxxx --
+-- block_dump: 0, size: 52, value: xxxxxxxxxxxx --
+-- block_dump: 0, size: 56, value: xxxxxxxxxxxxx --
+total: 7
+===========
+-- block_dump: 1, size: 12, value: bbbbbbbbbbb --
+-- block_dump: 0, size: 40, value: xxxxxxxxx --
+-- block_dump: 0, size: 44, value: xxxxxxxxxx --
+-- block_dump: 0, size: 16, value: bbbbbbbbbbbbbbb --
+-- block_dump: 0, size: 48, value: xxxxxxxxxxx --
+-- block_dump: 0, size: 52, value: xxxxxxxxxxxx --
+-- block_dump: 0, size: 56, value: xxxxxxxxxxxxx --
+total: 7
+===========
+-- block_dump: 1, size: 12, value: bbbbbbbbbbb --
+-- block_dump: 0, size: 40, value: xxxxxxxxx --
+-- block_dump: 0, size: 44, value: xxxxxxxxxx --
+-- block_dump: 1, size: 16, value: bbbbbbbbbbbbbbb --
+-- block_dump: 0, size: 48, value: xxxxxxxxxxx --
+-- block_dump: 0, size: 52, value: xxxxxxxxxxxx --
+-- block_dump: 0, size: 56, value: xxxxxxxxxxxxx --
+-- block_dump: 0, size: 60, value: xxxxxxxxxxxxxx --
+total: 8
+===========
+-- block_dump: 1, size: 12, value: bbbbbbbbbbb --
+-- block_dump: 0, size: 40, value: xxxxxxxxx --
+-- block_dump: 0, size: 44, value: xxxxxxxxxx --
+-- block_dump: 1, size: 16, value: bbbbbbbbbbbbbbb --
+-- block_dump: 0, size: 48, value: xxxxxxxxxxx --
+-- block_dump: 0, size: 52, value: xxxxxxxxxxxx --
+-- block_dump: 0, size: 56, value: xxxxxxxxxxxxx --
+-- block_dump: 0, size: 60, value: xxxxxxxxxxxxxx --
+-- block_dump: 0, size: 20, value: aaaaaaaaaaaaaaaa --
+total: 9
+===========
+-- block_dump: 1, size: 12, value: bbbbbbbbbbb --
+-- block_dump: 0, size: 40, value: xxxxxxxxx --
+-- block_dump: 0, size: 44, value: xxxxxxxxxx --
+-- block_dump: 1, size: 16, value: bbbbbbbbbbbbbbb --
+-- block_dump: 0, size: 48, value: xxxxxxxxxxx --
+-- block_dump: 0, size: 52, value: xxxxxxxxxxxx --
+-- block_dump: 0, size: 56, value: xxxxxxxxxxxxx --
+-- block_dump: 0, size: 60, value: xxxxxxxxxxxxxx --
+-- block_dump: 1, size: 20, value: aaaaaaaaaaaaaaaa --
+-- block_dump: 0, size: 64, value: xxxxxxxxxxxxxxx --
+total: 10
+===========
+-- block_dump: 1, size: 12, value: bbbbbbbbbbb --
+-- block_dump: 0, size: 40, value: xxxxxxxxx --
+-- block_dump: 0, size: 44, value: xxxxxxxxxx --
+-- block_dump: 1, size: 16, value: bbbbbbbbbbbbbbb --
+-- block_dump: 0, size: 48, value: xxxxxxxxxxx --
+-- block_dump: 0, size: 52, value: xxxxxxxxxxxx --
+-- block_dump: 0, size: 56, value: xxxxxxxxxxxxx --
+-- block_dump: 0, size: 60, value: xxxxxxxxxxxxxx --
+-- block_dump: 0, size: 20, value: bbbbbbbbbbbbbbbbb --
+-- block_dump: 0, size: 64, value: xxxxxxxxxxxxxxx --
+total: 10
+===========
+-- block_dump: 1, size: 12, value: bbbbbbbbbbb --
+-- block_dump: 0, size: 40, value: xxxxxxxxx --
+-- block_dump: 0, size: 44, value: xxxxxxxxxx --
+-- block_dump: 1, size: 16, value: bbbbbbbbbbbbbbb --
+-- block_dump: 0, size: 48, value: xxxxxxxxxxx --
+-- block_dump: 0, size: 52, value: xxxxxxxxxxxx --
+-- block_dump: 0, size: 56, value: xxxxxxxxxxxxx --
+-- block_dump: 0, size: 60, value: xxxxxxxxxxxxxx --
+-- block_dump: 1, size: 20, value: bbbbbbbbbbbbbbbbb --
+-- block_dump: 0, size: 64, value: xxxxxxxxxxxxxxx --
+-- block_dump: 0, size: 68, value: xxxxxxxxxxxxxxxx --
+total: 11
+===========
+-- block_dump: 1, size: 12, value: bbbbbbbbbbb --
+-- block_dump: 0, size: 40, value: xxxxxxxxx --
+-- block_dump: 0, size: 44, value: xxxxxxxxxx --
+-- block_dump: 1, size: 16, value: bbbbbbbbbbbbbbb --
+-- block_dump: 0, size: 48, value: xxxxxxxxxxx --
+-- block_dump: 0, size: 52, value: xxxxxxxxxxxx --
+-- block_dump: 0, size: 56, value: xxxxxxxxxxxxx --
+-- block_dump: 0, size: 60, value: xxxxxxxxxxxxxx --
+-- block_dump: 0, size: 20, value: aaaaaaaaaaaaaaaaaa --
+-- block_dump: 0, size: 64, value: xxxxxxxxxxxxxxx --
+-- block_dump: 0, size: 68, value: xxxxxxxxxxxxxxxx --
+total: 11
+===========
+-- block_dump: 1, size: 12, value: bbbbbbbbbbb --
+-- block_dump: 0, size: 40, value: xxxxxxxxx --
+-- block_dump: 0, size: 44, value: xxxxxxxxxx --
+-- block_dump: 1, size: 16, value: bbbbbbbbbbbbbbb --
+-- block_dump: 0, size: 48, value: xxxxxxxxxxx --
+-- block_dump: 0, size: 52, value: xxxxxxxxxxxx --
+-- block_dump: 0, size: 56, value: xxxxxxxxxxxxx --
+-- block_dump: 0, size: 60, value: xxxxxxxxxxxxxx --
+-- block_dump: 1, size: 20, value: aaaaaaaaaaaaaaaaaa --
+-- block_dump: 0, size: 64, value: xxxxxxxxxxxxxxx --
+-- block_dump: 0, size: 68, value: xxxxxxxxxxxxxxxx --
+-- block_dump: 0, size: 72, value: xxxxxxxxxxxxxxxxx --
+total: 12
+===========
+-- block_dump: 1, size: 12, value: bbbbbbbbbbb --
+-- block_dump: 0, size: 40, value: xxxxxxxxx --
+-- block_dump: 0, size: 44, value: xxxxxxxxxx --
+-- block_dump: 1, size: 16, value: bbbbbbbbbbbbbbb --
+-- block_dump: 0, size: 48, value: xxxxxxxxxxx --
+-- block_dump: 0, size: 52, value: xxxxxxxxxxxx --
+-- block_dump: 0, size: 56, value: xxxxxxxxxxxxx --
+-- block_dump: 0, size: 60, value: xxxxxxxxxxxxxx --
+-- block_dump: 0, size: 20, value: bbbbbbbbbbbbbbbbbbb --
+-- block_dump: 0, size: 64, value: xxxxxxxxxxxxxxx --
+-- block_dump: 0, size: 68, value: xxxxxxxxxxxxxxxx --
+-- block_dump: 0, size: 72, value: xxxxxxxxxxxxxxxxx --
+total: 12
+===========
+-- block_dump: 1, size: 12, value: bbbbbbbbbbb --
+-- block_dump: 0, size: 40, value: xxxxxxxxx --
+-- block_dump: 0, size: 44, value: xxxxxxxxxx --
+-- block_dump: 1, size: 16, value: bbbbbbbbbbbbbbb --
+-- block_dump: 0, size: 48, value: xxxxxxxxxxx --
+-- block_dump: 0, size: 52, value: xxxxxxxxxxxx --
+-- block_dump: 0, size: 56, value: xxxxxxxxxxxxx --
+-- block_dump: 0, size: 60, value: xxxxxxxxxxxxxx --
+-- block_dump: 1, size: 20, value: bbbbbbbbbbbbbbbbbbb --
+-- block_dump: 0, size: 64, value: xxxxxxxxxxxxxxx --
+-- block_dump: 0, size: 68, value: xxxxxxxxxxxxxxxx --
+-- block_dump: 0, size: 72, value: xxxxxxxxxxxxxxxxx --
+-- block_dump: 0, size: 76, value: xxxxxxxxxxxxxxxxxx --
+total: 13
+===========
+done
+total: 0
+===========
+dump done
+- 10, a
+malloc
+** start extend heap 0xa70000 12, 12
+before realloc aaaaaaaaaa
+max 10 20
+realloc is good address 0xa70000
+realloc bigger 
+nothing found lets make new big
+** found a block address (nil) for 40
+** extend heap 0xa70034 40, 40
+new block, 0xa70034 40 40
+free address 0xa70000 12
+realloc result aaaaaaaaaa
+- 11, b
+calloc
+** found a block address 0xa70000 for 12
+before realloc bbbbbbbbbbb
+max 11 22
+realloc is good address 0xa70000
+realloc bigger 
+nothing found lets make new big
+** found a block address (nil) for 44
+** extend heap 0xa70084 44, 44
+new block, 0xa70084 44 44
+free address 0xa70000 12
+realloc result bbbbbbbbbbb
+- 12, a
+malloc
+** found a block address (nil) for 16
+** extend heap 0xa700d8 16, 16
+before realloc aaaaaaaaaaaa
+max 12 24
+realloc is good address 0xa700d8
+realloc bigger 
+nothing found lets make new big
+** found a block address (nil) for 48
+** extend heap 0xa70110 48, 48
+new block, 0xa70110 48 48
+free address 0xa700d8 16
+realloc result aaaaaaaaaaaa
+- 13, b
+calloc
+** found a block address 0xa700d8 for 16
+before realloc bbbbbbbbbbbbb
+max 13 26
+realloc is good address 0xa700d8
+realloc bigger 
+nothing found lets make new big
+** found a block address (nil) for 52
+** extend heap 0xa70168 52, 52
+new block, 0xa70168 52 52
+free address 0xa700d8 16
+realloc result bbbbbbbbbbbbb
+- 14, a
+malloc
+** found a block address 0xa700d8 for 16
+before realloc aaaaaaaaaaaaaa
+max 14 28
+realloc is good address 0xa700d8
+realloc bigger 
+nothing found lets make new big
+** found a block address (nil) for 56
+** extend heap 0xa701c4 56, 56
+new block, 0xa701c4 56 56
+free address 0xa700d8 16
+realloc result aaaaaaaaaaaaaa
+- 15, b
+malloc
+** found a block address 0xa700d8 for 16
+before realloc bbbbbbbbbbbbbbb
+max 15 30
+realloc is good address 0xa700d8
+realloc bigger 
+nothing found lets make new big
+** found a block address (nil) for 60
+** extend heap 0xa70224 60, 60
+new block, 0xa70224 60 60
+free address 0xa700d8 16
+realloc result bbbbbbbbbbbbbbb
+- 16, a
+calloc
+** found a block address (nil) for 20
+** extend heap 0xa70288 20, 20
+before realloc aaaaaaaaaaaaaaaa
+max 16 32
+realloc is good address 0xa70288
+realloc bigger 
+nothing found lets make new big
+** found a block address (nil) for 64
+** extend heap 0xa702c4 64, 64
+new block, 0xa702c4 64 64
+free address 0xa70288 20
+realloc result aaaaaaaaaaaaaaaa
+- 17, b
+malloc
+** found a block address 0xa70288 for 20
+before realloc bbbbbbbbbbbbbbbbb
+max 17 34
+realloc is good address 0xa70288
+realloc bigger 
+nothing found lets make new big
+** found a block address (nil) for 68
+** extend heap 0xa7032c 68, 68
+new block, 0xa7032c 68 68
+free address 0xa70288 20
+realloc result bbbbbbbbbbbbbbbbb
+- 18, a
+malloc
+** found a block address 0xa70288 for 20
+before realloc aaaaaaaaaaaaaaaaaa
+max 18 36
+realloc is good address 0xa70288
+realloc bigger 
+nothing found lets make new big
+** found a block address (nil) for 72
+** extend heap 0xa70398 72, 72
+new block, 0xa70398 72 72
+free address 0xa70288 20
+realloc result aaaaaaaaaaaaaaaaaa
+- 19, b
+malloc
+** found a block address 0xa70288 for 20
+before realloc bbbbbbbbbbbbbbbbbbb
+max 19 38
+realloc is good address 0xa70288
+realloc bigger 
+nothing found lets make new big
+** found a block address (nil) for 76
+** extend heap 0xa70408 76, 76
+new block, 0xa70408 76 76
+free address 0xa70288 20
+realloc result bbbbbbbbbbbbbbbbbbb
+going to free
+*********
+free address 0xa70034 40
+free address 0xa70084 44
+free address 0xa70110 48
+free address 0xa70168 52
+free address 0xa701c4 56
+free address 0xa70224 60
+free address 0xa702c4 64
+free address 0xa7032c 68
+free address 0xa70398 72
+free address 0xa70408 76

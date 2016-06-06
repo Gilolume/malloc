@@ -1,5 +1,7 @@
 SRC =	my_malloc.c\
-	core/block.c
+	core/block.c\
+	core/calloc.c\
+	core/realloc.c
 
 CC	= gcc
 NAME 	= libmy_malloc_$(shell uname).so

@@ -1,0 +1,29 @@
+SRC =	my_malloc.c\
+	core/block.c
+
+CC	= gcc
+NAME 	= libmy_malloc_$(shell uname).so
+OBJO 	= $(SRC:%.c=%.o)
+OBJC 	= $(SRC)
+
+CFLAGS 	= -c -W -Werror -Wall -fPIC
+LDFLAGS	= -shard
+
+all:	$(NAME)
+
+$(NAME):	$(OBJO)
+	make -C lib_src/
+	$(CC) $(CFLAGS) -fPIC $(OBJC) -L./lib_src -lmy
+	$(CC) $(LDFLAGS) -o $(NAME) $(OBJO)
+	ln -sf $(NAME) libmy_malloc.so
+
+test:	all
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJC) -L.. -lmy_malloc -L../lib_src -lmy
+
+clean:
+	rm -f $(OBJO)
+fclean:		clean
+	rm -f $(NAME)
+	rm -f libmy_malloc.so
+
+re:	fclean all
