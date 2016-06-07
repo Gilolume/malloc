@@ -16,7 +16,7 @@ void* calloc(size_t number, size_t size)
   char *out;
   int max;
   int i;
-  
+
   if ((out = malloc(number * size))) {
     max = blockSize(number * size);
     i = 0;

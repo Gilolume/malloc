@@ -24,7 +24,7 @@ size_t metaSize()
 t_block *findBlock(t_block **chain, size_t size)
 {
   t_block *b;
-  
+
   b = *chain;
   while (b && !(b->free && b->size >= size))
     {
@@ -32,18 +32,17 @@ t_block *findBlock(t_block **chain, size_t size)
       if (b)
 	*chain = b;
     }
-  
   return (b);
 }
 
 t_block *extendHeap(t_block *chain, size_t size)
 {
   t_block *b;
-  
+
   b = sbrk(0);
   if (sbrk(metaSize() + size) == (void*) -1)
     return (NULL);
-  
+
   b->size = size;
   b->next = NULL;
   b->prev = chain;
@@ -51,14 +50,14 @@ t_block *extendHeap(t_block *chain, size_t size)
   b->free = 0;
   if (chain)
     chain->next = b;
-  
+
   return (b);
 }
 
 void splitBlock(t_block *b, size_t size)
 {
   t_block *new;
-  
+
   new = (t_block *)(b->data + size);
   new->size = b->size - (size + metaSize());
   new->free = 1;
@@ -67,11 +66,10 @@ void splitBlock(t_block *b, size_t size)
   new->ptr = new->data;
   if (b->next)
     b->next->prev = new;
-  
+
   b->size = size;
   b->next = new;
 }
-
 
 t_block *getBlock(void *ptr)
 {
@@ -96,14 +94,14 @@ t_block *fusionBlocks(t_block *b)
       if (b->next)
 	b->next->prev = b;
     }
-  
+
   return (b);
 }
 
 void copyBlock(t_block *a, t_block *b)
 {
   size_t i;
-  
+
   i = 0;
   while (i < a->size)
     {
@@ -111,4 +109,3 @@ void copyBlock(t_block *a, t_block *b)
       i += 1;
     }
 }
-

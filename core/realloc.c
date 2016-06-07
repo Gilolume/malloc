@@ -17,10 +17,10 @@ void *realloc(void *ptr, size_t s)
   t_block *block;
   t_block *out;
   void *tmp;
-  
+
   if (!ptr)
     return (malloc(s));
-  
+
   if (validBlockAddress(ptr))
     {
       size = blockSize(s);
@@ -53,4 +53,3 @@ void *realloc(void *ptr, size_t s)
     }
   return (NULL);
 }
-

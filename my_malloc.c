@@ -16,9 +16,8 @@ void* malloc(size_t size)
   t_block *b;
   t_block *last;
 
-  if (size == 0)
+  if (!size)
     return (NULL);
-
   size = blockSize(size);
   if (g_block)
     {
@@ -33,15 +32,13 @@ void* malloc(size_t size)
 	}
       else
 	{
-	  b = extendHeap(last, size);
-	  if (!b)
+	  if (!(b = extendHeap(last, size)))
 	    return (NULL);
 	}
     }
-  else 
+  else
     {
-      b = extendHeap(NULL, size);
-      if (!b)
+      if (!(b = extendHeap(NULL, size)))
 	return (NULL);
       g_block = b;
     }
@@ -71,5 +68,5 @@ void free(void *ptr)
 	    g_block = NULL;
 	  brk(b);
 	}
-    }	
+    }
 }
