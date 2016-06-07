@@ -9,7 +9,7 @@
 */
 #include "core/header.h"
 
-t_block *g_block;
+t_block *g_block = NULL;
 
 void* malloc(size_t size)
 {
@@ -24,18 +24,18 @@ void* malloc(size_t size)
     {
       last = g_block;
       b = findBlock(&last, size);
-      printf("** found a block address %p for %lu\n", b, size);
       
       if (b)
 	{
 	  if ((b->size - size) >= (metaSize() + 4))
-	    splitBlock(b, size);
-	  b->free =0;
+	    {
+	      splitBlock(b, size);
+	    }
+	  b->free = 0;
 	}
       else
 	{
 	  b = extendHeap(last, size);
-	  printf("** extend heap %p %lu, %lu\n", b, b->size, size);
 	  if (!b)
 	    return (NULL);
 	}
@@ -43,7 +43,6 @@ void* malloc(size_t size)
   else 
     {
       b = extendHeap(NULL, size);
-      printf("** start extend heap %p %lu, %lu\n", b, b->size, size);
       if (!b)
 	return (NULL);
       g_block = b;
@@ -60,13 +59,12 @@ void free(void *ptr)
     {
       b = getBlock(ptr);
       b->free = 1;
-      printf("free address %p %lu\n", b, b->size);
-      
+            
       if (b->prev && b->prev->free)
 	b = fusionBlocks(b->prev);
-	
+      
       if (b->next)
-	fusionBlocks(b);   
+	fusionBlocks(b);
       else
 	{
 	  if (b->prev)

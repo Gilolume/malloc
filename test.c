@@ -30,8 +30,8 @@ void dump() {
       my_put_nbr(last->free);
       my_putstr(", size: ");
       my_put_nbr((int)last->size);
-      //my_putstr(", value: ");
-      //my_putstr(last->data);
+      my_putstr(", value: ");
+      my_putstr(last->data);
       my_putstr(" --\n"); 
       
       last = last->next;
@@ -42,12 +42,10 @@ void dump() {
   my_putstr("\n===========\n");
 }
 
-char *test(int max, char c)
+void test(int max, char c)
 {
   char *list;
   int i;
-  
-  printf("- %d, %c\n", max, c);
   
   if (rand() % 2 == 1)
     {
@@ -67,8 +65,7 @@ char *test(int max, char c)
   else
     {
       my_putstr("calloc\n");
-      //list = calloc(sizeof(char), (max + 1));
-      list = malloc(sizeof(char) * (max + 1));
+      list = calloc(sizeof(char), (max + 1));
       if (list)
 	{
 	  i = 0;
@@ -80,8 +77,6 @@ char *test(int max, char c)
 	  list[max] = '\0';
 	}
     }
-
-  //dump();
   list = realloc(list, sizeof(char) * (max * 2));
   if (list)
     {
@@ -91,52 +86,28 @@ char *test(int max, char c)
 	  list[i] = 'x';
 	  i += 1;
 	}
-      list[max] = '\0';
+	list[max] = '\0';
     }
-
-  //dump();
-  
-  return (list);
+  free(list);
 }
 
 int main()
 {
   int i;
   int run;
-  char *list[40];
-
-  i = 0;
-  while (i < 40)
-    {
-      list[i] = NULL;
-      i += 1;
-    }
   
-  srand(time(NULL));
-  
-  run = 1;
+  srand(time(NULL));  
+  run = 100;
   while (run) {
     i = 0;
     while (i < rand() % 20)
       {
-	if (!list[i])
-	  list[i] = test(rand() % 100, (i % 2 == 0) ? 'a' : 'b');
+	test(rand() % 100, (i % 2 == 0) ? 'a' : 'b');
 	i += 1;
       }
-
-    i = 0;
-    while (i < 40)
-      {
-	if (list[i])
-	  {
-	    free(list[i]);
-	    list[i] = NULL;
-	  }
-	i += 1;
-      }
-    my_putstr("done\n");
-    //dump();
+    dump();
     my_putstr("dump done\n");
+    run += -1;
   }
   
   return (0);

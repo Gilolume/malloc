@@ -21,7 +21,7 @@ size_t metaSize()
   return (40);
 }
 
-t_block* findBlock(t_block **chain, size_t size)
+t_block *findBlock(t_block **chain, size_t size)
 {
   t_block *b;
   
@@ -36,7 +36,7 @@ t_block* findBlock(t_block **chain, size_t size)
   return (b);
 }
 
-t_block* extendHeap(t_block *chain, size_t size)
+t_block *extendHeap(t_block *chain, size_t size)
 {
   t_block *b;
   
@@ -65,8 +65,8 @@ void splitBlock(t_block *b, size_t size)
   new->next = b->next;
   new->prev = b;
   new->ptr = new->data;
-  if (new->next)
-    new->next->prev = b;
+  if (b->next)
+    b->next->prev = new;
   
   b->size = size;
   b->next = new;
@@ -90,8 +90,8 @@ int validBlockAddress(void *ptr)
 t_block *fusionBlocks(t_block *b)
 {
   if (b->next && b->next->free)
-    {     
-      b->size += (size_t)(metaSize() + b->next->size);
+    {
+      b->size += (metaSize() + b->next->size);
       b->next = b->next->next;
       if (b->next)
 	b->next->prev = b;
