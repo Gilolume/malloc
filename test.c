@@ -50,7 +50,7 @@ void test(int max, char c)
   if (rand() % 2 == 1)
     {
       my_putstr("malloc\n");
-      list = malloc(sizeof(char) * (max + 1));
+      list = malloc(sizeof(char) * max);
       if (list)
 	{
 	  i = 0;
@@ -65,19 +65,20 @@ void test(int max, char c)
   else
     {
       my_putstr("calloc\n");
-      list = calloc(sizeof(char), (max + 1));
+      list = calloc(sizeof(char), max);
       if (list)
 	{
 	  i = 0;
 	  while (i < max)
 	    {
 	      list[i] = c;
-	      i += 1;		
+	      i += 1;	
 	    }
 	  list[max] = '\0';
 	}
     }
-  list = realloc(list, sizeof(char) * (max * 2));
+  max = rand() % (max * 2);
+  list = realloc(list, sizeof(char) * max);
   if (list)
     {
       i = 0;
@@ -88,7 +89,8 @@ void test(int max, char c)
 	}
 	list[max] = '\0';
     }
-  free(list);
+  if (rand() % 2 == 1)
+    free(list);
 }
 
 int main()
@@ -100,12 +102,12 @@ int main()
   run = 100;
   while (run) {
     i = 0;
-    while (i < rand() % 20)
+    while (i < rand() % 2000)
       {
-	test(rand() % 100, (i % 2 == 0) ? 'a' : 'b');
+	test(rand() % 10000, (i % 2 == 0) ? 'a' : 'b');
 	i += 1;
       }
-    dump();
+    //dump();
     my_putstr("dump done\n");
     run += -1;
   }

@@ -13,7 +13,7 @@ extern t_block *g_block;
 
 size_t blockSize(int n)
 {
-  return ((((n - 1) >> 2) << 2) + 4);
+  return ((((n - 1) >> 2) << 2) + 8);
 }
 
 size_t metaSize()
@@ -105,7 +105,7 @@ void copyBlock(t_block *a, t_block *b)
   size_t i;
   
   i = 0;
-  while (i < a->size && i < 1)
+  while (i < a->size)
     {
       b->data[i] = a->data[i];
       i += 1;

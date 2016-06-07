@@ -24,13 +24,11 @@ void* malloc(size_t size)
     {
       last = g_block;
       b = findBlock(&last, size);
-      
+
       if (b)
 	{
-	  if ((b->size - size) >= (metaSize() + 4))
-	    {
-	      splitBlock(b, size);
-	    }
+	  if ((b->size - size) >= (metaSize() + blockSize(1)))
+	    splitBlock(b, size);
 	  b->free = 0;
 	}
       else
@@ -59,10 +57,10 @@ void free(void *ptr)
     {
       b = getBlock(ptr);
       b->free = 1;
-            
+
       if (b->prev && b->prev->free)
 	b = fusionBlocks(b->prev);
-      
+
       if (b->next)
 	fusionBlocks(b);
       else

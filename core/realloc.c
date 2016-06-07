@@ -25,10 +25,10 @@ void *realloc(void *ptr, size_t s)
     {
       size = blockSize(s);
       block = getBlock(ptr);
-      
+
       if (block->size >= size)
 	{
-	  if (block->size - size >= (metaSize() + 4))
+	  if (block->size - size >= (metaSize() + blockSize(1)))
 	    splitBlock(block, size);
 	}
       else
